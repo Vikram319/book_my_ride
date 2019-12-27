@@ -1,5 +1,7 @@
-class Cab < ApplicationRecord
+# frozen_string_literal: true
 
-	has_many :rides
-	validates_associated :rides
+class Cab < ApplicationRecord
+	validates :seats, :number, presence: true
+  has_many :rides
+  validates_associated :rides
 end

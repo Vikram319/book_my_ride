@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>index file for users</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
+</head>
+<body>
+	<p><%= @count %></p>
+	<h1>Rides</h1>
+	<table border="1px" class = "table">
+		<tr>
+			<th>Date</th>
+			<th>Time</th>
+			<th>Location</th>
+			<th>Driver</th>
+			<th>Request count</th>
+		</tr>
+		<% @ride_count.each do |ele|%>
+		<tr>
+			<td><%= ele.date %></td>
+			<td><%= ele.time.strftime("%I:%M%p") %></td>
+			<td><%= ele.location %></td>
+			<td><%= ele.driver.first_name %></td>
+			<td><%= ele.ride_requests.count %></td>
+			<td><%= link_to 'View Request', ride_ride_request_index_path(ele) %> <td>
+		</tr>
+		<% end %>
+
+	</table>
+</body>
+</html>

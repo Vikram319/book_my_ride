@@ -1,5 +1,7 @@
-class RidesController < ApplicationController
-	def index
+# frozen_string_literal: true
 
-	end
+class RidesController < ApplicationController
+  def index
+    @ride_count = Ride.all
+  end
 end
